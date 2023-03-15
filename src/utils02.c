@@ -36,3 +36,56 @@ int	my_abs(int nb)
 		return (nb * -1);
 	return (nb);
 }
+
+int	is_sorted(t_node **head)
+{
+	t_node	*ptr;
+
+	ptr = *head;
+	while (ptr && ptr->next)
+	{
+		if (ptr->data > ptr->next->data)
+			return (0);
+		ptr = ptr->next;
+	}
+	return (1);
+}
+
+// Prints the Linked List
+void	printList(t_list *head)
+{
+	t_list	*tmp;
+
+	tmp = head;
+	while (tmp != NULL)
+	{
+		ft_putnbr_fd(tmp->value, 1);
+		ft_putendl_fd("", 1);
+		tmp = tmp->next;
+	}
+}
+
+t_node	*lowest_n(t_node **head)
+{
+	t_node	*ptr;
+	t_node	*ptr2;
+
+	ptr = *head;
+	ptr2 = (*head)->next;
+	while(ptr2 != NULL)
+	{
+		if (ptr2->data < ptr->data)
+			ptr = ptr2;
+		ptr2 = ptr2->next;
+	}
+	ptr2->next = *head;
+	ptr2 = *head;
+	while (ptr2->next != ptr)
+	{
+		ptr2 = ptr2->next;
+	}
+	ptr2->next = NULL;
+	*head = ptr;
+
+	return (head);
+}

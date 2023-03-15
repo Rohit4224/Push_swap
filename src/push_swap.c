@@ -13,33 +13,23 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
-void	sort4_5(t_node **a, t_node **b, int size)
+//sort for 2
+void	sort_2(t_node **a)
 {
-	if (size == 4)
+	t_node *ptr;
+	t_node *ptr2;
+
+	ptr = *a;
+	ptr2 = (*a)->next;
+	while (ptr2 != NULL)
 	{
-
+		if (ptr->data < ptr2->data)
+			return ;
+		ptr = ptr->next;
+		ptr2 = ptr2->next;
 	}
-	if (size == 5)
-	{
-
-	}
-}
-
-void	sort2_3(t_node **a, t_node **b, int size)
-{
-	int i;
-
-	i = 0;
-	size = ft_lstsize(*a);
-	if (size == 2)
-	{
-
-	}
-	if (size == 3)
-	{
-
-	}
-	sort4_5(a, b, size);
+	ft_sa(a);
+	check_order(a);
 }
 
 // it checks if argv is equal to 2, 
@@ -70,13 +60,12 @@ int	main(int argc, char **argv)
 {
 	t_node	*a;
 	t_node	*b;
-	int		size;
 
-	size = 0;
 	if (argc == 1)
 		return (0);
 	else if (argc > 1)
 		check_input(argc, argv, &a);
-	sort2_5(&a, &b, size);
+	sort_2(&a);
+	sort3_5(&a, &b);
 	return (0);
 }

@@ -37,6 +37,7 @@ void	lst_erase(t_node **head)
 		free(*head);
 		*head = ptr;
 	}
+	free(head);
 }
 
 //to check duplicate numbers
@@ -67,6 +68,7 @@ void	check_order(t_node	**head)
 		ptr = ptr->next;
 		ptr2 = ptr2->next;
 	}
+	lst_erase(head);
 	exit(0);
 }
 
@@ -77,6 +79,7 @@ void	create_stack(t_node **head, int argc, char **argv, int index)
 {
 	t_node		*ptr;
 	int			i;
+	long int	nbr;
 
 	while (index < argc)
 	{
@@ -87,6 +90,12 @@ void	create_stack(t_node **head, int argc, char **argv, int index)
 			{
 				ft_putstr_fd("Error digit\n", 2);
 				exit(0);
+			}
+			nbr = ft_atoi(argv[index][i]);
+			if (nbr < -2147483648 || nbr > 2147483647)
+			{
+					write(2, "Error int is not in range\n", 27);
+					exit(0);
 			}
 			i++;
 		}
