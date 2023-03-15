@@ -6,12 +6,11 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:02:57 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/14 19:37:45 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/15 20:49:42 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 t_node	*ft_lstnew01(int content)
 {
@@ -37,7 +36,6 @@ void	lst_erase(t_node **head)
 		free(*head);
 		*head = ptr;
 	}
-	free(head);
 }
 
 //to check duplicate numbers
@@ -53,6 +51,7 @@ void	lst_check(t_node *head, int number)
 		head = head->next;
 	}
 }
+// se e' gia in tutto ordine
 
 void	check_order(t_node	**head)
 {
@@ -78,32 +77,33 @@ void	check_order(t_node	**head)
 void	create_stack(t_node **head, int argc, char **argv, int index)
 {
 	t_node		*ptr;
-	int			i;
-	long int	nbr;
+	//int			i;
+	long		tmp;
 
 	while (index < argc)
 	{
-		i = 0;
-		while (argv[index][i])
+		//i = 0;
+		if (!is_number(argv[index]))
 		{
-			if (ft_isdigit(argv[index][i]) == 0)
-			{
-				ft_putstr_fd("Error digit\n", 2);
-				exit(0);
-			}
-			nbr = ft_atoi(argv[index][i]);
-			if (nbr < -2147483648 || nbr > 2147483647)
-			{
-					write(2, "Error int is not in range\n", 27);
-					exit(0);
-			}
-			i++;
+			ft_putstr_fd("Error digit\n", 2);
+			exit(0);
 		}
+		tmp = ft_atoi(argv[index]);
+		if (tmp < -2147483648 || tmp > 2147483647)
+		{
+			write(2, "Error, int is not in range\n", 28);
+			exit(0);
+		}
+		// while (argv[index][i])
+		// {
+		// 	int_range(argv[index][i]);
+		// 	i++;
+		// }
 		ptr = ft_lstnew01(ft_atoi(argv[index]));
 		ft_lstadd_back01(head, ptr);
 		lst_check(*head, ptr->data);
 		index++;
 	}
-	check_order(head);
+	is_sorted(head);
 	ptr = NULL;
 }

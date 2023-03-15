@@ -6,12 +6,11 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 19:27:24 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/14 19:52:19 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/15 21:05:52 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 void	ft_lstadd_back01(t_node **alst, t_node *new)
 {
@@ -29,6 +28,7 @@ void	ft_lstadd_back01(t_node **alst, t_node *new)
 		tmp = tmp->next;
 	tmp->next = new;
 }
+
 
 int	my_abs(int nb)
 {
@@ -52,40 +52,45 @@ int	is_sorted(t_node **head)
 }
 
 // Prints the Linked List
-void	printList(t_list *head)
+/*
+void	print_list(t_node *head)
 {
-	t_list	*tmp;
+	t_node	*tmp;
 
 	tmp = head;
 	while (tmp != NULL)
 	{
-		ft_putnbr_fd(tmp->value, 1);
+		ft_putnbr_fd(tmp->data, 1);
 		ft_putendl_fd("", 1);
 		tmp = tmp->next;
 	}
-}
+}*/
 
-t_node	*lowest_n(t_node **head)
+int	lowest_n(t_node *head)
 {
-	t_node	*ptr;
+	int		val;
 	t_node	*ptr2;
 
-	ptr = *head;
-	ptr2 = (*head)->next;
-	while(ptr2 != NULL)
+	ptr2 = head;
+	val = INT_MAX;
+	while (ptr2 != NULL)
 	{
-		if (ptr2->data < ptr->data)
-			ptr = ptr2;
+		if (ptr2->data < val)
+			val = ptr2->data;
 		ptr2 = ptr2->next;
 	}
-	ptr2->next = *head;
-	ptr2 = *head;
-	while (ptr2->next != ptr)
-	{
-		ptr2 = ptr2->next;
-	}
-	ptr2->next = NULL;
-	*head = ptr;
-
-	return (head);
+	return (val);
 }
+
+void	point_head_to_min(t_node **head, int val)
+{
+	t_node	*list;
+
+	list = *head;
+	while (list->data != val)
+	{
+		ft_rra(head);
+		list = *head;
+	}
+}
+

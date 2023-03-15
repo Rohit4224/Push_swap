@@ -6,11 +6,10 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 21:01:52 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/14 19:56:22 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:36:42 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "push_swap.h"
 
 void	ft_sa(t_node **a)
@@ -23,7 +22,7 @@ void	ft_sa(t_node **a)
 	*a = ptr2;
 	ptr->next = ptr2->next;
 	ptr2->next = ptr;
-	ft_putstr("sa\n");
+	ft_putstr_fd("sa\n", 1);
 	return ;
 }
 
@@ -37,7 +36,7 @@ void	ft_sb(t_node **b)
 	*b = p2;
 	p->next = p2->next;
 	p2->next = p;
-	ft_putstr("sb\n");
+	ft_putstr_fd("sb\n", 1);
 }
 
 void	ft_ss(t_node **a, t_node **b)
@@ -57,7 +56,7 @@ void	ft_ss(t_node **a, t_node **b)
 	b01->next = b02->next;
 	a02->next = a01;
 	b02->next = b01;
-	ft_putstr("ss\n");
+	ft_putstr_fd("ss\n", 1);
 	return ;
 }
 
@@ -73,7 +72,7 @@ void	ft_pa(t_node **b, t_node **a)
 	*b = (*b)->next;
 	ptr->next = *a;
 	*a = ptr;
-	ft_putstr("pa\n");
+	ft_putstr_fd("pa\n", 1);
 	return ;
 }
 
@@ -89,6 +88,6 @@ void	ft_pb(t_node **a, t_node **b)
 	*a = (*a)->next;
 	ptr->next = *b;
 	*b = ptr;
-	ft_putstr("pb\n");
+	ft_putstr_fd("pb\n", 1);
 	return ;
 }

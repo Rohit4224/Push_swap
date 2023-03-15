@@ -6,18 +6,17 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:02:43 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/14 19:48:01 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/15 21:11:08 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 //sort for 2
 void	sort_2(t_node **a)
 {
-	t_node *ptr;
-	t_node *ptr2;
+	t_node	*ptr;
+	t_node	*ptr2;
 
 	ptr = *a;
 	ptr2 = (*a)->next;
@@ -47,6 +46,8 @@ void	check_input(int argc, char **argv, t_node **a)
 	if (argc == 2)
 	{
 		matrix = ft_split(argv[1], ' ');
+		if (matrix[1] == NULL)
+			exit(0);
 		while (matrix[size] != NULL)
 			size++;
 		create_stack(a, size, matrix, 0);
@@ -61,11 +62,15 @@ int	main(int argc, char **argv)
 	t_node	*a;
 	t_node	*b;
 
+	a = NULL;
+	b = NULL;
 	if (argc == 1)
 		return (0);
 	else if (argc > 1)
 		check_input(argc, argv, &a);
 	sort_2(&a);
 	sort3_5(&a, &b);
+	free(a);
+	free(b);
 	return (0);
 }

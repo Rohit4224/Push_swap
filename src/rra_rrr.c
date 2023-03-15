@@ -6,12 +6,11 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:15:04 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/14 19:55:23 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:37:11 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
-#include"libft/libft.h"
 
 void	ft_rra(t_node **a)
 {
@@ -28,7 +27,7 @@ void	ft_rra(t_node **a)
 	ptr2->next = *a;
 	*a = ptr2;
 	ptr->next = NULL;
-	ft_putstr("rra\n");
+	ft_putstr_fd("rra\n", 1);
 }
 
 void	ft_rrb(t_node **b)
@@ -46,7 +45,7 @@ void	ft_rrb(t_node **b)
 	ptr2->next = *b;
 	*b = ptr2;
 	ptr->next = NULL;
-	ft_putstr("rrb\n");
+	ft_putstr_fd("rrb\n", 1);
 }
 
 void	ft_rrr(t_node **a, t_node **b)
@@ -74,5 +73,5 @@ void	ft_rrr(t_node **a, t_node **b)
 	ptr2->next = *b;
 	*b = ptr2;
 	ptr->next = NULL;
-	ft_putstr("rrr\n");
+	ft_putstr_fd("rrr\n", 1);
 }

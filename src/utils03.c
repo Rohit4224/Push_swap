@@ -1,0 +1,70 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils03.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/15 18:42:37 by rkhinchi          #+#    #+#             */
+/*   Updated: 2023/03/15 19:58:26 by rkhinchi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+int	is_sign(char c)
+{
+	return (c == '+' || c == '-');
+}
+
+int	is_digit(char c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+int	ft_lstsize01(t_node *lst)
+{
+	int		i;
+	t_node	*tmp;
+
+	i = 0;
+	tmp = lst;
+	if (tmp == NULL)
+		return (0);
+	while (tmp != NULL)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
+}
+
+void	int_range(long int c)
+{
+	if (c < -2147483648 || c > 2147483647)
+	{
+		write(2, "Error int is not in range\n", 27);
+		exit(0);
+	}
+	else if (c > -2147483648 && c < 2147483647)
+		return ;
+	else
+	{
+		write(2, "Error int is not in range\n", 27);
+		exit(0);
+	}
+}
+
+int	is_number(char *argv)
+{
+	int	i;
+
+	i = 0;
+	if (is_sign(argv[i]) && argv[i + 1] != '\0')
+		i++;
+	while (argv[i] && is_digit(argv[i]))
+		i++;
+	if (argv[i] != '\0' && !is_digit(argv[i]))
+		return (0);
+	return (1);
+}
