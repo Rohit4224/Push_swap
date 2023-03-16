@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:02:43 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/15 21:11:08 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:54:45 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,11 @@ void	check_input(int argc, char **argv, t_node **a)
 	if (argc == 2)
 	{
 		matrix = ft_split(argv[1], ' ');
-		if (matrix[1] == NULL)
+		if (matrix[0] == NULL)
 			exit(0);
 		while (matrix[size] != NULL)
 			size++;
 		create_stack(a, size, matrix, 0);
-		free(matrix);
 	}
 	else if (argc >= 3)
 		create_stack(a, argc, argv, 1);
@@ -69,8 +68,8 @@ int	main(int argc, char **argv)
 	else if (argc > 1)
 		check_input(argc, argv, &a);
 	sort_2(&a);
-	sort3_5(&a, &b);
-	free(a);
-	free(b);
+	sorting(&a, &b);
+	lst_erase(&a);
+	lst_erase(&b);
 	return (0);
 }

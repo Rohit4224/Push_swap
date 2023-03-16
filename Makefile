@@ -6,7 +6,7 @@
 #    By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 16:34:15 by rkhinchi          #+#    #+#              #
-#    Updated: 2023/03/15 18:44:12 by rkhinchi         ###   ########.fr        #
+#    Updated: 2023/03/16 18:29:23 by rkhinchi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,11 @@ SRC			=		src/push_s_utils.c \
 					src/rra_rrr.c \
 					src/sa_pa.c \
 					src/utils02.c \
-					src/sort3_5.c \
+					src/sorting.c \
 					src/utils03.c \
+					src/error.c \
+					src/sort_lis.c \
+					src/lis.c
 
 SRC_BONUS	=
 

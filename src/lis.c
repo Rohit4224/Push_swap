@@ -1,61 +1,88 @@
-//header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lis.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/16 14:31:24 by rkhinchi          #+#    #+#             */
+/*   Updated: 2023/03/16 19:40:49 by rkhinchi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-//elmnt_lis to store the length of the longest increasing subsequence for each element of the input array
-//prev_index to store the index of the previous element in the longest increasing subsequence
 #include "push_swap.h"
 
-int		*lis(int arr[], int n)
+/*elmnt_lis to store the length of the 
+longest increasing subsequence 
+for each element of the input array*/
+//prev_index to store the index of the previous element 
+//in the longest increasing subsequence
+
+// initial LIS length for each elemnt is 1
+// lultima posizione del ultimo elemento del LIS e' pos
+
+typedef struct s_temp
 {
 	int	*elmnt_lis;
 	int	*prev_index;
-	int *actual_lis;
-	int i;
-	int j;
-	int len;
-	int pos;
+	int	*actual_lis;
+	int	i;
+	int	j;
+	int	len;
+	int	pos;
+}	t_temp;
 
-	elmnt_lis = malloc(sizeof(int) * n);
-	prev_index = malloc(sizeof(int) * n);
-	i = 0;
-	len = 1;
-	pos = 0;
-
-	while (i < n)
+void	lis_continue(t_temp *all, int arr[], int n)
+{
+	while (all->i < n)
 	{
-		elmnt_lis[i] = 1; // initial LIS length for each elemnt is 1
-		prev_index[i] = -1;
-		j = 0;
-		while(j < i)
+		all->elmnt_lis[all->i] = 1;
+		all->prev_index[all->i] = -1;
+		all->j = 0;
+		while (all->j < all->i)
 		{
-			if (arr[j] < arr[i] && elmnt_lis[j] + 1 >= elmnt_lis[i])
+			if (arr[all->j] < arr[all->i] && \
+			all->elmnt_lis[all->j] + 1 >= all->elmnt_lis[all->i])
 			{
-				elmnt_lis[i] = elmnt_lis[j] + 1;
-				prev_index[i] = j;
+				all->elmnt_lis[all->i] = all->elmnt_lis[all->j] + 1;
+				all->prev_index[all->i] = all->j;
 			}
-			j++;
+			all->j++;
 		}
-		if (len < elmnt_lis[i])
+		if (all->len < all->elmnt_lis[all->i])
 		{
-			len = elmnt_lis[i];
-			pos = i;
+			all->len = all->elmnt_lis[all->i];
+			all->pos = all->i;
 		}
-		i++;
+		all->i++;
 	}
-	actual_lis = malloc(sizeof(int) * len + 1);
-	actual_lis[len] == '\0';
-	i = len - 1;
-	while (i >= 0)
-	{
-		actual_lis[i] = arr[pos];
-		pos = prev_index[pos];
-		i--;
-	}
-	free(elmnt_lis);
-	free(prev_index);
-
-	return (actual_lis);
 }
 
+int	*lis(int arr[], int n, int *len_lis)
+{
+	t_temp	all;
+
+	all.elmnt_lis = malloc(sizeof(int) * n);
+	all.prev_index = malloc(sizeof(int) * n);
+	all.i = 0;
+	all.len = 1;
+	all.pos = 0;
+	lis_continue(&all, arr, n);
+	all.actual_lis = malloc(sizeof(int) * all.len);
+	all.i = all.len - 1;
+	while (all.i >= 0)
+	{
+		all.actual_lis[all.i] = arr[all.pos];
+		all.pos = all.prev_index[all.pos];
+		all.i--;
+	}
+	*len_lis = all.len;
+	free(all.elmnt_lis);
+	free(all.prev_index);
+	return (all.actual_lis);
+}
+
+/*
 int main()
 {
     int arr[] = { 10, 22, 9, 33, 21, 50, 41, 60};
@@ -73,3 +100,4 @@ int main()
 
     return 0;
 }
+*/

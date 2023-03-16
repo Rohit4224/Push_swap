@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:42:37 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/15 19:58:26 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:39:37 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,22 @@ int	is_number(char *argv)
 	if (argv[i] != '\0' && !is_digit(argv[i]))
 		return (0);
 	return (1);
+}
+
+int	*list_to_arr(t_node **a, int size)
+{
+	t_node	*ptr;
+	int		*arr;
+	int		i;
+
+	i = 0;
+	arr = malloc(sizeof(int) * size);
+	ptr = *a;
+	while (ptr != NULL)
+	{
+		arr[i] = ptr->data;
+		ptr = ptr->next;
+		i++;
+	}
+	return (arr);
 }

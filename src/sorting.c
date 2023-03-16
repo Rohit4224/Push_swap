@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort3_5.c                                          :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:04:58 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/15 21:27:58 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:12:11 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	continue_3(t_node **a, t_node *ptr, t_node *ptr2, t_node *ptr3)
 			ft_rra(a);
 			ft_sa(a);
 		}
+		check_order(a);
 	}
 }
 
@@ -72,6 +73,7 @@ void	sort_5(t_node **a, t_node **b)
 
 	min = lowest_n(*a);
 	point_head_to_min(a, min);
+	check_order(a);
 	ft_pb(a, b);
 	min = lowest_n(*a);
 	point_head_to_min(a, min);
@@ -82,7 +84,7 @@ void	sort_5(t_node **a, t_node **b)
 	check_order(a);
 }
 
-void	sort3_5(t_node **a, t_node **b)
+void	sorting(t_node **a, t_node **b)
 {
 	int		size;
 	t_node	*ptr;
@@ -96,4 +98,8 @@ void	sort3_5(t_node **a, t_node **b)
 		sort_4(a, b);
 	if (size == 5)
 		sort_5(a, b);
+	if (size > 5)
+	{
+		sort_lis(a, b, size);
+	}
 }

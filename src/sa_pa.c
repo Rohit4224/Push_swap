@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 21:01:52 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/15 17:36:42 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:06:22 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ft_pa(t_node **b, t_node **a)
 	ft_putstr_fd("pa\n", 1);
 	return ;
 }
-
+//int			i;
 // a to b 
 
 void	ft_pb(t_node **a, t_node **b)

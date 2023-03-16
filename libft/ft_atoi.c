@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkhinchi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 13:20:29 by rkhinchi          #+#    #+#             */
-/*   Updated: 2022/10/19 11:58:01 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:54:51 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 long long	ft_atoi(const char *str)
 {
-	int	i;
+	int			i;
 	long long	result;
 	long long	sign;
 
