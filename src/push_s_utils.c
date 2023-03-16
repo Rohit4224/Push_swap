@@ -78,7 +78,7 @@ void	create_stack(t_node **head, int argc, char **argv, int index)
 {
 	t_node		*ptr;
 	//int			i;
-	long		tmp;
+	long long	tmp;
 
 	while (index < argc)
 	{

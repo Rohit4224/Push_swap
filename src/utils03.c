@@ -39,7 +39,7 @@ int	ft_lstsize01(t_node *lst)
 	return (i);
 }
 
-void	int_range(long int c)
+/*void	int_range(long int c)
 {
 	if (c < -2147483648 || c > 2147483647)
 	{
@@ -53,7 +53,7 @@ void	int_range(long int c)
 		write(2, "Error int is not in range\n", 27);
 		exit(0);
 	}
-}
+}*/
 
 int	is_number(char *argv)
 {

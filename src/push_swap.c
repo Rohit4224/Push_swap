@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-//sort for 2
+// sort for 2
 void	sort_2(t_node **a)
 {
 	t_node	*ptr;
