@@ -18,7 +18,8 @@ typedef struct s_sort
 	int		*arr_lis;
 	t_node	*ptr;
 	int		i;
-	int		len[2];
+	int		len;
+	int		len_lis;
 }	t_sort;
 
 
@@ -42,11 +43,11 @@ void	sort_lis(t_node **a, t_node **b, int size)
 	k.i = 0;
 	k.ptr = *a;
 	k.arr = list_to_arr(a, size);
-	k.arr_lis = lis(k.arr, size, &k.len[1]);
-	k.len[0] = 0;
-	while (k.len[0]++ < size)
+	k.arr_lis = lis(k.arr, size, &k.len_lis);
+	k.len = 0;
+	while (k.len++ < size)
 	{
-		if (k.i < k.len[1] && k.ptr->data == k.arr_lis[k.i])
+		if (k.i < k.len_lis && k.ptr->data == k.arr_lis[k.i])
 		{
 			k.ptr = k.ptr->next;
 			ft_ra(a);
