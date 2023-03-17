@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:37:44 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/17 22:06:54 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/17 23:08:10 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	moves_2_peak(int i, int size)
 int	arr_4_a(t_node *a, int b_data, int size)
 {
 	int		i;
+	int		index_arr_a;
 	int		index_2_peak;
 	t_node	*ptr;
 	t_node	*ptr2;
@@ -57,7 +58,8 @@ int	arr_4_a(t_node *a, int b_data, int size)
 		}
 		ptr = ptr->next;
 	}
-	return (index_2_peak);
+	index_arr_a = moves_2_peak(index_2_peak, size);
+	return (index_arr_a);
 	/*if (i = size - 1)
 	{
 		ft_pa()
