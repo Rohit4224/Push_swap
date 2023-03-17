@@ -74,6 +74,7 @@ void	check_order(t_node	**head)
 
 //saving the first node, 
 //and adding the node to the back of stack a and to check duplicates
+// if index == 0 then not_argv is 1, which means we have to free argv(matrix)
 
 void	create_stack(t_node **head, int argc, char **argv, int index)
 {
