@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:40:45 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/16 19:50:49 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:03:44 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef struct s_sort
 	int		len;
 	int		len_lis;
 }	t_sort;
-
 
 void	print_list(t_node *head)
 {
@@ -65,4 +64,5 @@ void	sort_lis(t_node **a, t_node **b, int size)
 	print_list(*a);
 	printf("b :\n");
 	print_list(*b);
+	move_2_a(a, b);
 }

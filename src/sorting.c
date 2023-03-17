@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:04:58 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/16 18:12:11 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:03:48 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	sort_4(t_node **a, t_node **b)
 
 	min = lowest_n(*a);
 	point_head_to_min(a, min);
+	check_order(a);
 	ft_pb(a, b);
 	sort_3(a);
 	ft_pa(b, a);
@@ -90,7 +91,6 @@ void	sorting(t_node **a, t_node **b)
 	t_node	*ptr;
 
 	ptr = *a;
-
 	size = ft_lstsize01(ptr);
 	if (size == 3)
 		sort_3(a);
