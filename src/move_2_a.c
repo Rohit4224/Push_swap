@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:37:44 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/18 20:36:32 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/18 22:28:28 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,64 +18,6 @@ int	moves_2_peak(int i, int size)
 		i = i - size;
 	return (i);
 }
-/*
-int	return_max_or_min(int cont, int *max_n_min, int size)
-{
-	if (cont > max_n_min[0])
-		return (max_n_min[2]);
-	if (cont < max_n_min[1])
-		return (max_n_min[3]);
-	return (size + 1);
-}
-
-int	ft_max_or_min(t_node *stack_a, int cont, int size)
-{
-	int	max_n_min[5];
-
-	max_n_min[0] = stack_a->data;
-	max_n_min[1] = stack_a->data;
-	max_n_min[2] = 0;
-	max_n_min[3] = 0;
-	max_n_min[4] = 1;
-	while (stack_a != NULL)
-	{
-		if (stack_a->data >= max_n_min[0])
-		{
-			max_n_min[0] = stack_a->data;
-			max_n_min[2] = max_n_min[4];
-		}
-		if (stack_a->data < max_n_min[1])
-		{
-			max_n_min[1] = stack_a->data;
-			max_n_min[3] = max_n_min[4] - 1;
-		}
-		stack_a = stack_a->next;
-		max_n_min[4]++;
-	}
-	return (return_max_or_min(cont, max_n_min, size));
-}
-
-int	arr_4_a(t_node *stack_a, int cont, int size)
-{
-	t_node	*tmp;
-	int		i;
-
-	tmp = stack_a;
-	i = ft_max_or_min(stack_a, cont, size);
-	if (i != size + 1)
-		return (moves_2_peak(i, size));
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	if (cont < stack_a->data && cont > tmp->data)
-		return (0);
-	i = 1;
-	while (!(cont > stack_a->data && cont < (stack_a->next)->data))
-	{
-		stack_a = stack_a->next;
-		i++;
-	}
-	return (moves_2_peak(i, size));
-}*/
 
 int	arr_4_a(t_node *a, int b_data, int size)
 {
@@ -102,19 +44,15 @@ int	arr_4_a(t_node *a, int b_data, int size)
 	}
 	while (ptr != NULL)
 	{
-		if (ptr->data < b_data)
-		{
-			i++;
-		}
 		if (ptr->data > b_data)
 		{
 			if (ptr->data <= ptr2->data)
-			{
+			{	
 				index_2_peak = i;
 				ptr2 = ptr;
-				i++;
 			}
 		}
+		i++;
 		ptr = ptr->next;
 	}
 	index_arr_a = moves_2_peak(index_2_peak, size);
@@ -195,3 +133,61 @@ void	move_2_a(t_node **a, t_node **b)
 		b_size--;
 	}
 }
+
+// int	return_max_or_min(int cont, int *max_n_min, int size)
+// {
+// 	if (cont > max_n_min[0])
+// 		return (max_n_min[2]);
+// 	if (cont < max_n_min[1])
+// 		return (max_n_min[3]);
+// 	return (size + 1);
+// }
+/*
+int	ft_max_or_min(t_node *stack_a, int cont, int size)
+{
+	int	max_n_min[5];
+
+	max_n_min[0] = stack_a->data;
+	max_n_min[1] = stack_a->data;
+	max_n_min[2] = 0;
+	max_n_min[3] = 0;
+	max_n_min[4] = 1;
+	while (stack_a != NULL)
+	{
+		if (stack_a->data >= max_n_min[0])
+		{
+			max_n_min[0] = stack_a->data;
+			max_n_min[2] = max_n_min[4];
+		}
+		if (stack_a->data < max_n_min[1])
+		{
+			max_n_min[1] = stack_a->data;
+			max_n_min[3] = max_n_min[4] - 1;
+		}
+		stack_a = stack_a->next;
+		max_n_min[4]++;
+	}
+	return (return_max_or_min(cont, max_n_min, size));
+}
+
+int	arr_4_a(t_node *stack_a, int cont, int size)
+{
+	t_node	*tmp;
+	int		i;
+
+	tmp = stack_a;
+	i = ft_max_or_min(stack_a, cont, size);
+	if (i != size + 1)
+		return (moves_2_peak(i, size));
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	if (cont < stack_a->data && cont > tmp->data)
+		return (0);
+	i = 1;
+	while (!(cont > stack_a->data && cont < (stack_a->next)->data))
+	{
+		stack_a = stack_a->next;
+		i++;
+	}
+	return (moves_2_peak(i, size));
+}*/
