@@ -179,10 +179,10 @@ void	move_2_a(t_node **a, t_node **b)
 	{
 		left_b_index = remaining_b(b, b_size, a, a_size);
 		if (left_b_index < 0)
-			while (i++ < 0)
+			while (left_b_index++ < 0)
 				ft_rrb(b);
-		else if (i > 0)
-			while (i-- > 0)
+		else if (left_b_index > 0)
+			while (left_b_index-- > 0)
 				ft_rb(b);
 		ft_pa(b, a);
 		a_size++;
