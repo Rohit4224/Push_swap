@@ -36,3 +36,9 @@ void	ft_error_number(char **argv, t_node **head, char c, int n)
 	error_free(argv, head, c, 1);
 	exit(0);
 }
+
+void	error_malloc(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	exit(0);
+}

@@ -45,6 +45,9 @@ void	error_free(char **argv, t_node **head, char not_argv, char erase);
 void	ft_error_number(char **argv, t_node **head, char c, int n);
 void	sort_lis(t_node **a, t_node **b, int size);
 int		*lis(int arr[], int n, int *len_lis);
+void	error_malloc(void);
+int		*cpy_arr(int *arr, int size);
+int		max_nbr(int a, int b);
 
 //instructions
 

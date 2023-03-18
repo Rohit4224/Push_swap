@@ -86,3 +86,34 @@ int	*list_to_arr(t_node **a, int size)
 	}
 	return (arr);
 }
+
+int	*cpy_arr(int *arr, int size)
+{
+	int	i;
+	int	*cpy;
+
+	i = 0;
+	cpy = (int *) malloc (sizeof(int) * size);
+	if (!arr || !cpy)
+		error_malloc();
+	while (i < size)
+	{
+		cpy[i] = arr[i];
+		i++;
+	}
+	return (cpy);
+}
+
+int	max_nbr(int a, int b)
+{
+	if (a < 0)
+		a *= -1;
+	if (b < 0)
+		b *= -1;
+	if (a > b)
+		return (a);
+	if (b > a)
+		return (b);
+	else
+		return (a);
+}
