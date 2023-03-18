@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:27:30 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/16 19:02:38 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/18 20:36:33 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ int		*lis(int arr[], int n, int *len_lis);
 void	error_malloc(void);
 int		*cpy_arr(int *arr, int size);
 int		max_nbr(int a, int b);
+void	move_2_a(t_node **a, t_node **b);
+int		best_fusion(int *arr_a, int *arr_b, int size);
+int		comb_a_moves(int a, int b, t_node **a_stack, t_node **b_stack);
+int		moves_2_peak(int i, int size);
+void	print_list(t_node *head);
 
 //instructions
 

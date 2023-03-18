@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:37:44 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/17 23:08:10 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/18 20:36:32 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,64 @@ int	moves_2_peak(int i, int size)
 		i = i - size;
 	return (i);
 }
+/*
+int	return_max_or_min(int cont, int *max_n_min, int size)
+{
+	if (cont > max_n_min[0])
+		return (max_n_min[2]);
+	if (cont < max_n_min[1])
+		return (max_n_min[3]);
+	return (size + 1);
+}
+
+int	ft_max_or_min(t_node *stack_a, int cont, int size)
+{
+	int	max_n_min[5];
+
+	max_n_min[0] = stack_a->data;
+	max_n_min[1] = stack_a->data;
+	max_n_min[2] = 0;
+	max_n_min[3] = 0;
+	max_n_min[4] = 1;
+	while (stack_a != NULL)
+	{
+		if (stack_a->data >= max_n_min[0])
+		{
+			max_n_min[0] = stack_a->data;
+			max_n_min[2] = max_n_min[4];
+		}
+		if (stack_a->data < max_n_min[1])
+		{
+			max_n_min[1] = stack_a->data;
+			max_n_min[3] = max_n_min[4] - 1;
+		}
+		stack_a = stack_a->next;
+		max_n_min[4]++;
+	}
+	return (return_max_or_min(cont, max_n_min, size));
+}
+
+int	arr_4_a(t_node *stack_a, int cont, int size)
+{
+	t_node	*tmp;
+	int		i;
+
+	tmp = stack_a;
+	i = ft_max_or_min(stack_a, cont, size);
+	if (i != size + 1)
+		return (moves_2_peak(i, size));
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	if (cont < stack_a->data && cont > tmp->data)
+		return (0);
+	i = 1;
+	while (!(cont > stack_a->data && cont < (stack_a->next)->data))
+	{
+		stack_a = stack_a->next;
+		i++;
+	}
+	return (moves_2_peak(i, size));
+}*/
 
 int	arr_4_a(t_node *a, int b_data, int size)
 {
@@ -38,8 +96,9 @@ int	arr_4_a(t_node *a, int b_data, int size)
 	}
 	if (ptr == NULL)
 	{
-		i = 0;
-		return (i);
+		index_2_peak = size + 1;
+		//i = 0;
+		//return (i);
 	}
 	while (ptr != NULL)
 	{
@@ -60,80 +119,12 @@ int	arr_4_a(t_node *a, int b_data, int size)
 	}
 	index_arr_a = moves_2_peak(index_2_peak, size);
 	return (index_arr_a);
-	/*if (i = size - 1)
-	{
-		ft_pa()
-	}*/
+	// if (i = size - 1)
+	// {
+	// 	ft_pa()
+	// }
 }
 
-int	continue_best_fusion(int *arr_a, int *arr_b, int *arr_c, int size)
-{
-	int pos;
-	int i;
-
-	pos = 0;
-	i = 0;
-	while (i < size)
-	{
-		if (arr_c[i] < arr_c[pos])
-			pos = i;
-		i++;
-	}
-	free(arr_c);
-	free(arr_b);
-	free(arr_a);
-	return (pos);
-}
-
-int	best_fusion(int *arr_a, int *arr_b, int size)
-{
-	int *arr_c;
-	int i;
-
-	i = 0;
-	arr_c = (int *) malloc(sizeof(int) * size);
-	if (arr_c == 0 || !arr_a == 0 || arr_b == 0)
-		error_malloc();
-	while (i < size)
-	{
-		if ((arr_a[i] < 0 && arr_b[i] < 0)
-			|| (arr_a[i] > 0 && arr_b[i] > 0))
-			arr_c[i] = max_nbr(arr_a[i], arr_b[i]);
-		else
-		{
-			if (arr_a[i] < 0)
-				arr_a[i] *= -1;
-			if (arr_b[i] < 0)
-				arr_b[i] *= -1;
-			arr_c[i] = arr_a[i] + arr_b[i];
-		}
-		i++;
-	}
-	return (continue_best_fusion(arr_a, arr_b, arr_c, size));
-}
-
-int	comb_a_moves(int a, int b, t_node **a, t_node **b)
-{
-	while (a < 0 && b < 0)
-	{
-		ft_rrr(a, b);
-		a++;
-		b++;
-	}
-	while (a > 0 && b > 0)
-	{
-		ft_rr(a, b);
-		a--;
-		b--;
-	}
-	if (a < 0)
-		while (a++ < 0)
-			ft_rra(a);
-	else if (a > 0)
-		while (a-- > 0)
-			ft_ra(a);
-	return (b);
-}
 
 int	remaining_b(t_node **b, int b_size, t_node **a, int a_size)
 {
@@ -157,7 +148,19 @@ int	remaining_b(t_node **b, int b_size, t_node **a, int a_size)
 		arr_a[i] = arr_4_a(*a, b_ptr->data, a_size);
 		b_ptr = b_ptr->next;
 		i++;
+		// printf("a :\n");
+		// print_list(*a);
+		// printf("b :\n");
+		// print_list(*b);
 	}
+	
+	// i = 0;
+	// while (i < b_size)
+	// {
+	// 	printf("%d", arr_a[i]);
+	// 	i++;
+	// }
+
 	i = best_fusion(cpy_arr(arr_a, b_size),
 			cpy_arr(arr_b, b_size), b_size);
 	i = comb_a_moves(arr_a[i], arr_b[i], a, b);
@@ -178,6 +181,9 @@ void	move_2_a(t_node **a, t_node **b)
 	while (*b != NULL)
 	{
 		left_b_index = remaining_b(b, b_size, a, a_size);
+		
+		// printf("\n");
+		
 		if (left_b_index < 0)
 			while (left_b_index++ < 0)
 				ft_rrb(b);

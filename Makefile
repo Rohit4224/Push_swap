@@ -6,7 +6,7 @@
 #    By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 16:34:15 by rkhinchi          #+#    #+#              #
-#    Updated: 2023/03/16 18:29:23 by rkhinchi         ###   ########.fr        #
+#    Updated: 2023/03/18 20:36:35 by rkhinchi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,10 @@ SRC			=		src/push_s_utils.c \
 					src/utils03.c \
 					src/error.c \
 					src/sort_lis.c \
-					src/lis.c
+					src/lis.c \
+					src/utils04.c \
+					src/move_2_a.c \
+					src/best_fusion.c 
 
 SRC_BONUS	=
 
