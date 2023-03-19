@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 19:27:24 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/18 15:04:42 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:03:48 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,6 @@ int	is_sorted(t_node **head)
 	}
 	return (1);
 }
-
-// Prints the Linked List
-/*
-void	print_list(t_node *head)
-{
-	t_node	*tmp;
-
-	tmp = head;
-	while (tmp != NULL)
-	{
-		ft_putnbr_fd(tmp->data, 1);
-		ft_putendl_fd("", 1);
-		tmp = tmp->next;
-	}
-}*/
 
 int	lowest_n(t_node *head)
 {

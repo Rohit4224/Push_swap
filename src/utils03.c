@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:42:37 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/18 15:05:33 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:03:11 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,6 @@ int	ft_lstsize01(t_node *lst)
 	}
 	return (i);
 }
-
-/*void	int_range(long int c)
-{
-	if (c < -2147483648 || c > 2147483647)
-	{
-		write(2, "Error int is not in range\n", 27);
-		exit(0);
-	}
-	else if (c > -2147483648 && c < 2147483647)
-		return ;
-	else
-	{
-		write(2, "Error int is not in range\n", 27);
-		exit(0);
-	}
-}*/
 
 int	is_number(char *argv)
 {

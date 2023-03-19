@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:37:44 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/18 22:28:28 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:06:28 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,11 @@ int	arr_4_a(t_node *a, int b_data, int size)
 		{
 			if (ptr->data == lowest_num)
 			{
-					index_2_peak = i;
+				index_2_peak = i;
 			}
 			i++;
 			ptr = ptr->next;
 		}
-		//index_2_peak = size + 1;
-		//i = 0;
-		//return (i);
 	}
 	while (ptr != NULL)
 	{
@@ -71,12 +68,7 @@ int	arr_4_a(t_node *a, int b_data, int size)
 	}
 	index_arr_a = moves_2_peak(index_2_peak, size);
 	return (index_arr_a);
-	// if (i = size - 1)
-	// {
-	// 	ft_pa()
-	// }
 }
-
 
 int	remaining_b(t_node **b, int b_size, t_node **a, int a_size)
 {
@@ -95,28 +87,12 @@ int	remaining_b(t_node **b, int b_size, t_node **a, int a_size)
 		i++;
 	}
 	i = 0;
-	// if (b_ptr->next == NULL)
-	// {
-	// 	arr_a[i] = min_index_in_stack_a(*a, a_size);
-	// }
 	while (i < b_size && b_ptr != NULL)
 	{
 		arr_a[i] = arr_4_a(*a, b_ptr->data, a_size);
 		b_ptr = b_ptr->next;
 		i++;
-		printf("a :\n");
-		print_list(*a);
-		printf("b :\n");
-		print_list(*b);
 	}
-	
-	i = 0;
-	while (i < b_size)
-	{
-		printf("%d", arr_a[i]);
-		i++;
-	}
-
 	i = best_fusion(cpy_arr(arr_a, b_size),
 			cpy_arr(arr_b, b_size), b_size);
 	i = comb_a_moves(arr_a[i], arr_b[i], a, b);
@@ -137,9 +113,6 @@ void	move_2_a(t_node **a, t_node **b)
 	while (*b != NULL)
 	{
 		left_b_index = remaining_b(b, b_size, a, a_size);
-		
-		printf("\n");
-		
 		if (left_b_index < 0)
 			while (left_b_index++ < 0)
 				ft_rrb(b);

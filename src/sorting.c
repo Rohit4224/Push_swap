@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:04:58 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/18 22:28:25 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:00:15 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	continue_3(t_node **a, t_node *ptr, t_node *ptr2, t_node *ptr3)
 			ft_rra(a);
 			ft_sa(a);
 		}
-		check_order(a);
 	}
 }
 
@@ -94,6 +93,7 @@ void	sorting(t_node **a, t_node **b)
 	size = ft_lstsize01(ptr);
 	if (size == 3)
 		sort_3(a);
+	check_order(a);
 	if (size == 4)
 		sort_4(a, b);
 	if (size == 5)

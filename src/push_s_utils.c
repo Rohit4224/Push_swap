@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:02:57 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/18 15:04:32 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:00:09 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	check_duplicate(t_node *head, int number, char **argv, char not_argv)
 	{
 		if (head->data == number)
 		{
-			ft_putstr_fd("Error duplicate\n", 2);
+			ft_putstr_fd("Error\n", 2);
 			error_free(argv, &head, not_argv, 1);
 			exit(0);
 		}

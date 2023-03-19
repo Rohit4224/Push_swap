@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:40:45 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/18 22:28:26 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:04:19 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,17 +73,6 @@ void	sort_lis(t_node **a, t_node **b, int size)
 	}
 	free(k.arr_lis);
 	free(k.arr);
-	
-	printf("a :\n");
-	print_list(*a);
-	printf("b :\n");
-	print_list(*b);
-	
 	move_2_a(a, b);
 	get_min(a, size);
-	
-	printf("a :\n");
-	print_list(*a);
-	printf("b :\n");
-	print_list(*b);
 }
