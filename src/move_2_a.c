@@ -26,11 +26,12 @@ int	arr_4_a(t_node *a, int b_data, int size)
 	int		index_2_peak;
 	t_node	*ptr;
 	t_node	*ptr2;
+	int		lowest_num;
 
 	ptr = a;
 	ptr2 = a;
 	i = 0;
-	while (ptr->data < b_data && ptr != NULL)
+	while (ptr != NULL && ptr->data < b_data)
 	{
 		i++;
 		ptr = ptr->next;
@@ -38,7 +39,20 @@ int	arr_4_a(t_node *a, int b_data, int size)
 	}
 	if (ptr == NULL)
 	{
-		index_2_peak = size + 1;
+		i = 0;
+		ptr = a;
+		lowest_num = lowest_n(ptr);
+		ptr = a;
+		while (ptr != NULL && i < size)
+		{
+			if (ptr->data == lowest_num)
+			{
+					index_2_peak = i;
+			}
+			i++;
+			ptr = ptr->next;
+		}
+		//index_2_peak = size + 1;
 		//i = 0;
 		//return (i);
 	}
@@ -81,23 +95,27 @@ int	remaining_b(t_node **b, int b_size, t_node **a, int a_size)
 		i++;
 	}
 	i = 0;
+	// if (b_ptr->next == NULL)
+	// {
+	// 	arr_a[i] = min_index_in_stack_a(*a, a_size);
+	// }
 	while (i < b_size && b_ptr != NULL)
 	{
 		arr_a[i] = arr_4_a(*a, b_ptr->data, a_size);
 		b_ptr = b_ptr->next;
 		i++;
-		// printf("a :\n");
-		// print_list(*a);
-		// printf("b :\n");
-		// print_list(*b);
+		printf("a :\n");
+		print_list(*a);
+		printf("b :\n");
+		print_list(*b);
 	}
 	
-	// i = 0;
-	// while (i < b_size)
-	// {
-	// 	printf("%d", arr_a[i]);
-	// 	i++;
-	// }
+	i = 0;
+	while (i < b_size)
+	{
+		printf("%d", arr_a[i]);
+		i++;
+	}
 
 	i = best_fusion(cpy_arr(arr_a, b_size),
 			cpy_arr(arr_b, b_size), b_size);
@@ -120,7 +138,7 @@ void	move_2_a(t_node **a, t_node **b)
 	{
 		left_b_index = remaining_b(b, b_size, a, a_size);
 		
-		// printf("\n");
+		printf("\n");
 		
 		if (left_b_index < 0)
 			while (left_b_index++ < 0)
@@ -133,61 +151,3 @@ void	move_2_a(t_node **a, t_node **b)
 		b_size--;
 	}
 }
-
-// int	return_max_or_min(int cont, int *max_n_min, int size)
-// {
-// 	if (cont > max_n_min[0])
-// 		return (max_n_min[2]);
-// 	if (cont < max_n_min[1])
-// 		return (max_n_min[3]);
-// 	return (size + 1);
-// }
-/*
-int	ft_max_or_min(t_node *stack_a, int cont, int size)
-{
-	int	max_n_min[5];
-
-	max_n_min[0] = stack_a->data;
-	max_n_min[1] = stack_a->data;
-	max_n_min[2] = 0;
-	max_n_min[3] = 0;
-	max_n_min[4] = 1;
-	while (stack_a != NULL)
-	{
-		if (stack_a->data >= max_n_min[0])
-		{
-			max_n_min[0] = stack_a->data;
-			max_n_min[2] = max_n_min[4];
-		}
-		if (stack_a->data < max_n_min[1])
-		{
-			max_n_min[1] = stack_a->data;
-			max_n_min[3] = max_n_min[4] - 1;
-		}
-		stack_a = stack_a->next;
-		max_n_min[4]++;
-	}
-	return (return_max_or_min(cont, max_n_min, size));
-}
-
-int	arr_4_a(t_node *stack_a, int cont, int size)
-{
-	t_node	*tmp;
-	int		i;
-
-	tmp = stack_a;
-	i = ft_max_or_min(stack_a, cont, size);
-	if (i != size + 1)
-		return (moves_2_peak(i, size));
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	if (cont < stack_a->data && cont > tmp->data)
-		return (0);
-	i = 1;
-	while (!(cont > stack_a->data && cont < (stack_a->next)->data))
-	{
-		stack_a = stack_a->next;
-		i++;
-	}
-	return (moves_2_peak(i, size));
-}*/
