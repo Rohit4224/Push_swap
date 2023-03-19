@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:27:30 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/19 18:00:11 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/19 19:12:33 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ int		best_fusion(int *arr_a, int *arr_b, int size);
 int		comb_a_moves(int a, int b, t_node **a_stack, t_node **b_stack);
 int		moves_2_peak(int i, int size);
 void	print_list(t_node *head);
+
+// array for a
+int		arr_4_a(t_node *a, int b_data, int size);
 
 //instructions
 
