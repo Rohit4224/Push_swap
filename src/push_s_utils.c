@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:02:57 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/19 18:00:09 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:27:22 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,31 +22,18 @@ t_node	*ft_lstnew01(int content)
 	return (node);
 }
 
-//list_delete
-void	lst_erase(t_node **head)
-{
-	t_node	*ptr;
-
-	if (*head == NULL)
-		return ;
-	ptr = *head;
-	while (ptr != NULL)
-	{
-		ptr = (*head)->next;
-		free(*head);
-		*head = ptr;
-	}
-}
-
 //to check duplicate numbers
 void	check_duplicate(t_node *head, int number, char **argv, char not_argv)
 {
+	t_node	*start;
+
+	start = head;
 	while (head->next != NULL)
 	{
 		if (head->data == number)
 		{
 			ft_putstr_fd("Error\n", 2);
-			error_free(argv, &head, not_argv, 1);
+			error_free(argv, &start, not_argv, 1);
 			exit(0);
 		}
 		head = head->next;

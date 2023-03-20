@@ -6,7 +6,7 @@
 #    By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 16:34:15 by rkhinchi          #+#    #+#              #
-#    Updated: 2023/03/20 14:50:22 by rkhinchi         ###   ########.fr        #
+#    Updated: 2023/03/20 19:27:21 by rkhinchi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,14 @@ SRC			=		src/push_s_utils.c \
 					src/best_fusion.c \
 					src/arr_4_a.c 
 
-SRC_BONUS	=
+SRC_BONUS		=	src/checker.c \
+					src/check_output.c \
+					src/ra_rr_checker.c \
+					src/rra_rrr_checker.c \
+					src/sa_pa_checker.c \
+					src/error.c \
+					src/utils03.c \
+					src/utils04.c 
 
 LIBFT		=		libft/libft.a
 

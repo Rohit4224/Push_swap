@@ -6,17 +6,17 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:17:49 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/20 17:16:59 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:27:27 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_finale(t_list *stack_a)
+void	check_finale(t_node *stack_a)
 {
 	while (stack_a->next != NULL)
 	{
-		if (stack_a->content > (stack_a->next)->content)
+		if (stack_a->data > (stack_a->next)->data)
 		{
 			write(1, "KO\n", 3);
 			return ;

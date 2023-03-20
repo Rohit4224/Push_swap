@@ -6,11 +6,27 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:31:56 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/19 18:07:01 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:23:56 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//list_delete
+void	lst_erase(t_node **head)
+{
+	t_node	*ptr;
+
+	if (*head == NULL)
+		return ;
+	ptr = *head;
+	while (*head != NULL)
+	{
+		ptr = (*head)->next;
+		free(*head);
+		*head = ptr;
+	}
+}
 
 void	error_free(char **argv, t_node **head, char not_argv, char erase)
 {

@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:27:30 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/20 17:16:33 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:27:30 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,7 @@ void	sort_2_checker(t_node **a);
 void	check_order_4_checker(t_node **head);
 void	check_duplicate_checker(t_node *head, int number,
 			char **argv, char not_argv);
+void	error_free_checker(char **argv, t_node **head,
+			char not_argv, char erase);
 
 #endif
