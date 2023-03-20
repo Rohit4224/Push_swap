@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:02:43 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/19 18:00:10 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:30:26 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ void	check_input(int argc, char **argv, t_node **a)
 	{
 		matrix = ft_split(argv[1], ' ');
 		if (matrix[0] == NULL)
+		{
+			error_free(matrix, NULL, 1, 0);
 			exit(0);
+		}
 		while (matrix[size] != NULL)
 			size++;
 		create_stack(a, size, matrix, 0);

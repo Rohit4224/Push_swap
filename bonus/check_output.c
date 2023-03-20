@@ -1,8 +1,19 @@
-//header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_output.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/20 15:17:28 by rkhinchi          #+#    #+#             */
+/*   Updated: 2023/03/20 17:32:11 by rkhinchi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_duplicate_checker(t_node *head, int number, char **argv, char not_argv)
+void	check_duplicate_checker(t_node *head, int number,
+				char **argv, char not_argv)
 {
 	while (head->next != NULL)
 	{
