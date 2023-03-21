@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:33:45 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/20 17:34:06 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/21 18:51:19 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ char	*ft_read_line_gnl(int fd, char *dst)
 	char	buf;
 
 	len = 1;
+	buf = 0;
+	dst = (char *) malloc (sizeof(char) * 1);
+	dst[0] = '\0';
 	while (len != 0 && buf != '\n')
 	{
 		len = read(fd, &buf, 1);
@@ -59,10 +62,11 @@ char	*ft_read_line_gnl(int fd, char *dst)
 			return (NULL);
 		dst = ft_strjoin_gnl(dst, buf);
 	}
-	if (dst[0] == '\n')
-		return ("\n");
-	if (!dst[1])
+	if (dst[0] == 0)
+	{
+		free(dst);
 		return (NULL);
+	}
 	return (dst);
 }
 
@@ -72,10 +76,7 @@ char	*get_next_line_gnl(int fd)
 
 	if (fd < 0)
 		return (NULL);
-	dst = (char *) malloc (sizeof(char) * 1);
-	if (!dst)
-		return (NULL);
-	dst[0] = '\0';
+	dst = NULL;
 	dst = ft_read_line_gnl(fd, dst);
 	if (!dst)
 		return (NULL);

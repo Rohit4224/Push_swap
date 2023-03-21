@@ -6,7 +6,7 @@
 #    By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 16:34:15 by rkhinchi          #+#    #+#              #
-#    Updated: 2023/03/20 19:27:21 by rkhinchi         ###   ########.fr        #
+#    Updated: 2023/03/21 18:23:03 by rkhinchi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,11 @@ SRC_BONUS		=	src/checker.c \
 					src/sa_pa_checker.c \
 					src/error.c \
 					src/utils03.c \
-					src/utils04.c 
+					src/utils04.c \
+					src/utils02.c \
+					src/ra_rr.c \
+					src/rra_rrr.c \
+					src/sa_pa.c 
 
 LIBFT		=		libft/libft.a
 

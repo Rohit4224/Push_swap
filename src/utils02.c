@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 19:27:24 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/20 19:27:18 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/21 18:51:27 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,21 @@ void	ft_lstadd_back01(t_node **alst, t_node *new)
 	tmp->next = new;
 }
 
-int	my_abs(int nb)
+int	ft_lstsize01(t_node *lst)
 {
-	if (nb < 0)
-		return (nb * -1);
-	return (nb);
+	int		i;
+	t_node	*tmp;
+
+	i = 0;
+	tmp = lst;
+	if (tmp == NULL)
+		return (0);
+	while (tmp != NULL)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
 }
 
 int	is_sorted(t_node **head)

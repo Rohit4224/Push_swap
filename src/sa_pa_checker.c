@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:18:13 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/20 19:01:46 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:49:53 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	checker_sa(t_node **a)
 	t_node	*ptr;
 	t_node	*ptr2;
 
+	if (*a == NULL || (*a)->next == NULL)
+		return ;
 	ptr = *a;
 	ptr2 = ptr->next;
 	*a = ptr2;
@@ -30,6 +32,8 @@ void	checker_sb(t_node **b)
 	t_node	*p;
 	t_node	*p2;
 
+	if (*b == NULL || (*b)->next == NULL)
+		return ;
 	p = *b;
 	p2 = p->next;
 	*b = p2;

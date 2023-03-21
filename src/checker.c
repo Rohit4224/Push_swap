@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:17:49 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/20 19:27:27 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:49:48 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ void	continue_sorting_checker(t_node **stack_a, t_node **stack_b, char *str)
 	else
 	{
 		ft_putstr_fd("Error\n", 2);
+		lst_erase(stack_a);
+		lst_erase(stack_b);
+		free(str);
 		exit(0);
 	}
 }
@@ -64,6 +67,7 @@ void	sorting_checker(t_node **stack_a, t_node **stack_b, char *str)
 			checker_rr(stack_a, stack_b);
 		else
 			continue_sorting_checker(stack_a, stack_b, str);
+		free(str);
 		str = get_next_line_gnl(0);
 	}
 }
@@ -78,7 +82,10 @@ void	check_input_checker(int argc, char **argv, t_node **a)
 	{
 		matrix = ft_split(argv[1], ' ');
 		if (matrix[0] == NULL)
+		{
+			error_free(matrix, NULL, 1, 0);
 			exit(0);
+		}
 		while (matrix[size] != NULL)
 			size++;
 		create_stack_checker(a, size, matrix, 0);
@@ -102,4 +109,6 @@ int	main(int argc, char **argv)
 	str = get_next_line_gnl(0);
 	sorting_checker(&a, &b, str);
 	check_finale(a);
+	lst_erase(&a);
+	lst_erase(&b);
 }

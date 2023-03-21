@@ -6,21 +6,11 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:02:57 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/20 19:27:22 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:49:50 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_node	*ft_lstnew01(int content)
-{
-	t_node	*node;
-
-	node = (t_node *)malloc(sizeof(t_node));
-	node->data = content;
-	node->next = NULL;
-	return (node);
-}
 
 //to check duplicate numbers
 void	check_duplicate(t_node *head, int number, char **argv, char not_argv)
