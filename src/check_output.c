@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:17:28 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/21 20:34:43 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/22 17:44:18 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void	create_stack_checker(t_node **head, int argc, char **argv, int index)
 		index++;
 	}
 	error_free(argv, NULL, not_argv, 0);
-	check_order_4_checker(head);
 	sort_2_checker(head);
 	ptr = NULL;
 }

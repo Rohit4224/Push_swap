@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:17:49 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/21 20:36:56 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/22 17:44:08 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	check_finale(t_node *stack_a)
 {
+	if (stack_a == NULL)
+	{
+		write(1, "KO\n", 3);
+		return ;
+	}
 	while (stack_a->next != NULL)
 	{
 		if (stack_a->data > (stack_a->next)->data)
