@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:02:43 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/21 19:49:49 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:19:18 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	check_input(int argc, char **argv, t_node **a)
 	else if (argc >= 3)
 		create_stack(a, argc, argv, 1);
 }
+
+// I check if given numbers are valid(check_input), and do sorting
 
 int	main(int argc, char **argv)
 {

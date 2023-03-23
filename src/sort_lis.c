@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:40:45 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/20 17:16:26 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:19:23 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ void	get_min(t_node **stack_a, int size)
 	pos = moves_2_peak(pos_min, size);
 	comb_a_moves(pos, 0, stack_a, &tmp);
 }
+
+// using funtion list_to_arr, I convert list to array, 
+//butto quello che non e' in lis in stack b
 
 void	sort_lis(t_node **a, t_node **b, int size)
 {
