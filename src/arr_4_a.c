@@ -6,7 +6,7 @@
 /*   By: rkhinchi <rkhinchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 19:10:36 by rkhinchi          #+#    #+#             */
-/*   Updated: 2023/03/19 19:12:46 by rkhinchi         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:19:05 by rkhinchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	to_find_index_2_peak(t_node *ptr, t_node *ptr2, int i, int b_data)
 	return (index_2_peak);
 }
 
-// array for a
+// array for a, trovare appena maggiore di b_data
 
 int	arr_4_a(t_node *a, int b_data, int size)
 {
